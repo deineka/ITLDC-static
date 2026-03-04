@@ -1,0 +1,20 @@
+PROCESSED on Tue, 24 Mar 2020 11:35:30 +0000
+/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css
+/wp-includes/css/dist/block-library/style.min.css
+/wp-content/plugins/revslider/public/assets/css/settings.css
+/wp-content/plugins/salert/assets/backend/css/animate.css
+/wp-content/plugins/salert/assets/frontend/css/style.css
+/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.css
+/wp-content/plugins/wpml-translation-management/res/css/admin-bar-style.css
+/wp-content/plugins/wpforms-lite/assets/css/wpforms-full.css
+/wp-content/themes/hostmev2/style.css
+/wp-content/themes/hostmev2/css/animate.css
+/wp-content/themes/hostmev2/css/prettyPhoto.css
+/wp-content/themes/hostmev2/css/shortcodes.css
+/wp-content/themes/hostmev2/css/fontawesome/css/font-awesome.css
+/wp-content/themes/hostmev2/css/blue.monday/jplayer.blue.monday.css
+/wp-content/themes/hostmev2/framework/admin/css/datepicker.css
+/wp-content/themes/hostmev2/css/responsive.css
+/wp-content/themes/hostmev2/css/owl.carousel.css
+/wp-content/themes/hostmev2/css/owl.theme.css
+PROCESSED from https://itldc.com/en/support/

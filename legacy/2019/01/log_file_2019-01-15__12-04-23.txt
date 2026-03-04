@@ -1,0 +1,70 @@
+
+---Downloaded files---
+The import files for: Hostmev2 Demo were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = http://web.layer6.net
+Data file = /var/www/itldc.com/wp-content/themes/hostmev2//theme-demo/main-demo/Sample-Data.xml
+Widget file = /var/www/itldc.com/wp-content/themes/hostmev2//theme-demo/main-demo/widget_data.wie
+Customizer file = not defined!
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Main Sidebar : 
+
+Search - No Title - Imported
+Recent Posts - No Title - Imported
+Recent Comments - No Title - Imported
+Archives - No Title - Imported
+Categories - No Title - Imported
+Meta - No Title - Imported
+
+Topbar Left : 
+
+Text - No Title - Imported
+
+Topbar Right : 
+
+Text - No Title - Imported
+
+Footer Area Top : 
+
+Text - No Title - Imported
+
+Footer Area Bottom : 
+
+Text - No Title - Imported
+
+Copyright Left Content : 
+
+Hostmev2 - Sociables - No Title - Imported
+
+Footer Branches : 
+
+Text - No Title - Imported
+
+Footer Column1 : 
+
+Hostmev2 - Contact Info - No Title - Imported
+
+Footer Column2 : 
+
+Text - Services - Imported
+
+Footer Column3 : 
+
+Text - Support - Imported
+
+Footer Column4 : 
+
+Text - About Hostmev2 Theme - Imported
+
+
+
+---pt-ocdi/after_import---
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Banner Slider</title>
+
+    <!-- Font Awesome Free -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <style>
+        :root {
+            --bg1: #1e3a8a;
+            --bg2: #1e40af;
+            --text: #f8fafc;
+            --text-soft: #e2e8f0;
+            --icon: #facc15;
+            --icon-glow: rgba(250, 204, 21, 0.55);
+            --btn-bg: #fde047;
+            --btn-bg-hover: #fcd34d;
+            --btn-text: #1e293b;
+            --control-bg: rgba(15, 23, 42, 0.55);
+            --control-bg-hover: rgba(15, 23, 42, 0.9);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { height: 100%; }
+
+        body {
+            height: 150px;
+            overflow: hidden;
+            font-family: system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--bg1), var(--bg2));
+            color: var(--text);
+        }
+
+        .banner {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            position: relative;
+        }
+
+        .wrap {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            gap: 1.25rem;
+        }
+
+        .icon-box {
+            flex: 0 0 auto;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 22px var(--icon-glow);
+        }
+
+        .icon-box i {
+            font-size: 1.9rem;
+            color: var(--icon);
+            text-shadow: 0 0 12px var(--icon-glow);
+            transition: transform 0.25s ease;
+        }
+
+        .text-block {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: opacity 0.25s ease;
+        }
+
+        .subtitle {
+            margin-top: 0.2rem;
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            opacity: 0.85;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: opacity 0.25s ease;
+        }
+
+        .cta .btn {
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+            box-shadow: 0 0 14px rgba(0,0,0,0.25);
+            transition: 0.15s ease;
+        }
+
+        .cta .btn:hover {
+            background: var(--btn-bg-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 0 18px rgba(0,0,0,0.35);
+        }
+
+        /* CONTROLS – Smaller */
+        .controls {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .control-btn {
+            width: 20px;     /* smaller */
+            height: 20px;    /* smaller */
+            border-radius: 50%;
+            border: none;
+            background: var(--control-bg);
+            color: #e5e7eb;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.55rem;   /* smaller icon */
+            transition: 0.15s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--control-bg-hover);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .subtitle { display: none; }
+            .banner { padding-right: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+    <div class="wrap">
+        <div class="icon-box">
+            <i id="slide-icon" class="fa-solid fa-cloud"></i>
+        </div>
+
+        <div class="text-block">
+            <div id="slide-title" class="title"></div>
+            <div id="slide-subtitle" class="subtitle"></div>
+        </div>
+
+        <div class="cta">
+            <a id="slide-link" href="#" class="btn" target="_blank">
+                More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Prev/Next (smaller) -->
+    <div class="controls">
+        <button class="control-btn" id="prev-slide">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <button class="control-btn" id="next-slide">
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    const slides = [
+        {
+            icon: "fa-server",
+            title: "Bare metal dedicated server with AMD CPUs promotion - supercharge your project",
+            subtitle: "Modern platforms, powerful CPUs, pure performance - with 15% discount!",
+            url: "https://itldc.com/en/blog/new-amd-powered-dedicated-servers-pure-power-no-compromises/?blockid=2027733"
+        },
+        {
+            icon: "fa-cloud",
+            title: "HD VDS - your backup solution, compatible with all requirements!",
+            subtitle: "From 100Gb to 4TB - special backup-optimized virtual servers.",
+            url: "https://itldc.com/en/hd-vds/?blockid=2027733"
+        }
+    ];
+
+    const iconEl = document.getElementById("slide-icon");
+    const titleEl = document.getElementById("slide-title");
+    const subtitleEl = document.getElementById("slide-subtitle");
+    const linkEl = document.getElementById("slide-link");
+
+    let currentIndex = 0;
+    const SLIDE_INTERVAL = 7000;   // 5 seconds
+    let intervalId;
+
+    function apply(index) {
+        const s = slides[index];
+
+        titleEl.style.opacity = 0;
+        subtitleEl.style.opacity = 0;
+        iconEl.style.transform = "scale(0.9)";
+
+        setTimeout(() => {
+            iconEl.className = "fa-solid " + s.icon;
+            titleEl.textContent = s.title;
+            subtitleEl.textContent = s.subtitle || "";
+            linkEl.href = s.url;
+
+            titleEl.style.opacity = 1;
+            subtitleEl.style.opacity = s.subtitle ? 1 : 0;
+            iconEl.style.transform = "scale(1)";
+        }, 120);
+    }
+
+    function next() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        apply(currentIndex);
+    }
+
+    function prev() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        apply(currentIndex);
+    }
+
+    function resetTimer() {
+        clearInterval(intervalId);
+        intervalId = setInterval(next, SLIDE_INTERVAL);
+    }
+
+    document.getElementById("next-slide").onclick = () => { next(); resetTimer(); };
+    document.getElementById("prev-slide").onclick = () => { prev(); resetTimer(); };
+
+    apply(0);
+    resetTimer();
+</script>
+
+</body>
+</html>
+
